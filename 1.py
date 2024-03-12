@@ -33,6 +33,27 @@ def second_edit(text):
 
     return ' '.join(text_new_lines_size)
 
+def third_edit(text):
+    content_split = text.split()
+
+    # Метод upper
+    text_new_lines_size = [word.upper() for word in content_split]
+
+    # Метод title
+    text_new_lines_size = [word.title() for word in text_new_lines_size]
+
+    # Метод swapcase
+    text_new_lines_size = [word.swapcase() for word in text_new_lines_size]
+
+    letters = 0
+    for i, word in enumerate(text_new_lines_size):
+        letters += len(word)
+        if letters > 45:
+            text_new_lines_size[i - 1] += '\n'
+            letters = len(word)
+
+    return ' '.join(text_new_lines_size)
+
 #Читання з файлу
 with open('text.txt', 'r', encoding='utf') as rf:
     print(f'file: {rf.name}')
@@ -54,14 +75,16 @@ result = second_edit(rf_content)
 result = result.replace('\n ', ' \n')
 print(f'\nSecond iteration text:\n{result}')
 
-#Третя ітерація name
+#Третя ітерація Chuchlib Evgeniy
 #Функції для використання: (upper, title, swapcase)
+result = third_edit(rf_content)
+result = result.replace('\n ', ' \n')
 
 # Виведення результатів
 print(f'\nThird iteration text:\n{result}')
 
 #Четверта ітерація name
-#Функції для використання: ( )
+#Функції для використання: (capitalize, replace, count)
 
 # Виведення результатів
 print(f'\nFourth iteration text:\n{result}')
