@@ -54,6 +54,28 @@ def third_edit(text):
 
     return ' '.join(text_new_lines_size)
 
+def fourth_edit(text):
+    content_split = text.split()
+
+    # Метод capitalize
+    text_new_lines_size = [word.capitalize() for word in content_split]
+
+    # Метод replace
+    text_new_lines_size = [word.replace('y', 'z') for word in text_new_lines_size]
+
+    # Метод count
+    count = sum(word.count('t') for word in text_new_lines_size)
+    print("Кількість 't' у тексті:", count)
+
+    letters = 0
+    for i, word in enumerate(text_new_lines_size):
+        letters += len(word)
+        if letters > 45:
+            text_new_lines_size[i - 1] += '\n'
+            letters = len(word)
+
+    return ' '.join(text_new_lines_size)
+
 #Читання з файлу
 with open('text.txt', 'r', encoding='utf') as rf:
     print(f'file: {rf.name}')
@@ -83,8 +105,10 @@ result = result.replace('\n ', ' \n')
 # Виведення результатів
 print(f'\nThird iteration text:\n{result}')
 
-#Четверта ітерація name
+#Четверта ітерація Radko Vitalii
 #Функції для використання: (capitalize, replace, count)
+result = fourth_edit(rf_content)
+result = result.replace('\n ', ' \n')
 
 # Виведення результатів
 print(f'\nFourth iteration text:\n{result}')
