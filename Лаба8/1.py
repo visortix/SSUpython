@@ -2,7 +2,6 @@ def print_data(vocabulary):  # Ustymenko Dmytro
     for id in students_data:
         print(students_data[id])
 
-
 def add_data(vocabulary):  # Ustymenko Dmytro
     new_id = len(vocabulary) + 1
     new_student_data = {
@@ -28,6 +27,11 @@ def add_data(vocabulary):  # Ustymenko Dmytro
     students_data.update(new_student_data)
     return students_data
 
+# Milanovych Dmytro
+def del_data(vocabulary):
+    print(f"\nStident {vocabulary[1]['full_name']} was successfully deleted.")
+    del vocabulary[1] #видалення елемента словника за ключем "1"
+
 
 students_data = {  # Ustymenko Dmytro
     1: {
@@ -52,7 +56,14 @@ students_data = {  # Ustymenko Dmytro
     }
 }
 
+# додавання даних до словника # Ustymenko Dmytro
 print_data(students_data)
 students_data = add_data(students_data)
 print_data(students_data)
-# некст видалення
+
+# видалення даних зі словника # Milanovych Dmytro
+# структура, яка була створена попередній студентом є оптимальною. Зміни не є необхідні
+del_data(students_data)
+print_data(students_data)
+
+# сорутвання словника за ключами
